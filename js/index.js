@@ -39,6 +39,12 @@ const siteContent = {
   },
   footer: {
     copyright: 'Copyright Great Idea! 2018'
+  },
+
+  // Stretch
+  updateCta: {
+    h1: 'Hey There, We are Started now',
+    btn: 'You\'ve Started'
   }
 };
 
@@ -68,7 +74,7 @@ nav.children[5].textContent = siteContent['nav']['nav-item-6'];
 const blogElement = document.createElement('a');
 blogElement.textContent = 'Blog';
 blogElement.setAttribute('href', '#');
-nav.append(blogElement);
+nav.appendChild(blogElement);
 
 // Prepend() items to nav
 const homeElement = document.createElement('a');
@@ -117,3 +123,18 @@ contactElements[3].textContent = siteContent['contact']['email'];
 
 // footer
 footerPtag.textContent = siteContent['footer']['copyright'];
+
+// Stretch: Implement Event
+let getStartedBtn = document.querySelector('.cta-text button')
+// add event listener
+let status = false;
+getStartedBtn.addEventListener('click', () => {
+  if (status) {
+    ctaTextElements[0].textContent = siteContent['cta']['h1'];
+    ctaTextElements[1].textContent = siteContent['cta']['button'];
+  } else {
+    ctaTextElements[0].textContent = siteContent['updateCta']['h1'];
+    ctaTextElements[1].textContent = siteContent['updateCta']['btn'];
+  }
+  status = !status;
+})
