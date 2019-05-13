@@ -64,6 +64,11 @@ navElements[3].textContent = siteContent['nav']['nav-item-4'];
 navElements[4].textContent = siteContent['nav']['nav-item-5'];
 navElements[5].textContent = siteContent['nav']['nav-item-6'];
 
+// change navigation text color to green
+Array.from(navElements).forEach(element => {
+  element.setAttribute('style', 'color:green')
+})
+
 // cta-text div
 ctaTextElements[0].textContent = siteContent['cta']['h1'];
 ctaTextElements[1].textContent = siteContent['cta']['button'];
