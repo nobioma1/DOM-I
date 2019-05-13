@@ -47,7 +47,7 @@ let logo = document.getElementById('logo-img');
 logo.setAttribute('src', siteContent['nav']['img-src']);
 
 // selectors
-let navElements = document.querySelector('nav').children;
+let nav = document.querySelector('nav');
 let ctaTextElements = document.querySelector('.cta-text').children;
 let ctaImage = document.querySelector('#cta-img');
 let topContentElemements = document.querySelector('.top-content').children;
@@ -57,15 +57,27 @@ let footerPtag = document.querySelector('footer p');
 
 
 // NavBar
-navElements[0].textContent = siteContent['nav']['nav-item-1'];
-navElements[1].textContent = siteContent['nav']['nav-item-2'];
-navElements[2].textContent = siteContent['nav']['nav-item-3'];
-navElements[3].textContent = siteContent['nav']['nav-item-4'];
-navElements[4].textContent = siteContent['nav']['nav-item-5'];
-navElements[5].textContent = siteContent['nav']['nav-item-6'];
+nav.children[0].textContent = siteContent['nav']['nav-item-1'];
+nav.children[1].textContent = siteContent['nav']['nav-item-2'];
+nav.children[2].textContent = siteContent['nav']['nav-item-3'];
+nav.children[3].textContent = siteContent['nav']['nav-item-4'];
+nav.children[4].textContent = siteContent['nav']['nav-item-5'];
+nav.children[5].textContent = siteContent['nav']['nav-item-6'];
+
+// appendChild() items to nav
+const blogElement = document.createElement('a');
+blogElement.textContent = 'Blog';
+blogElement.setAttribute('href', '#');
+nav.append(blogElement);
+
+// Prepend() items to nav
+const homeElement = document.createElement('a');
+homeElement.textContent = 'Home';
+homeElement.setAttribute('href', '#');
+nav.prepend(homeElement);
 
 // change navigation text color to green
-Array.from(navElements).forEach(element => {
+Array.from(nav.children).forEach(element => {
   element.setAttribute('style', 'color:green')
 })
 
